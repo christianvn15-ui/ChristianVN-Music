@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Ticket</title>
+  <style>
+    body { 
+      font-family: Verdana, sans-serif; 
+      background: #1e1e1ee4; 
+      color: #1E90FF; 
+      text-align: center; 
+      padding: 20px; 
+      
+    }
+    
+    .ticket { 
+      background: #333; 
+      color: white; 
+      padding: 15px; 
+      border-radius: 8px; 
+      display: inline-block; 
+      text-align: left; 
+      margin-bottom: 20px; 
+      
+    }
+    
+    .qrcode { 
+      margin: 15px auto;
+    }
+      
+    button.download-btn { 
+      margin-top: 20px; 
+      padding: 10px 20px; 
+      font-size: 16px; 
+      font-weight: bold; 
+      color: white; 
+      background: #1E90FF; 
+      border: none; 
+      border-radius: 6px; 
+      cursor: pointer; 
+      
+    }
+      
+    button.download-btn:hover { 
+      background: #0b6ecf; 
+      
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    let booking;
+
+    window.onload = function() {
+      const params = new URLSearchParams(window.location.search);
+      const bookingId = params.get("bookingId");
+      booking = JSON.parse(localStorage.getItem(bookingId));
+
+      if (!booking) {
+        document.getElementById("ticketInfo").innerHTML = "<p>No ticket data found. Please book again.</p>";
+        return;
+      }
+
+      const events = {
+        show1: { title: "Sasolburg, Home", date: "28 March 2026, 19:00" },
+        show2: { title: "Vaalpark, Home", date: "5 April 2026, 19:00" }
+      };
+      const event = events[booking.eventId];
+
+      // Show ticket info
+      document.getElementById("ticketInfo").innerHTML = `
+        <div class="ticket" id="ticketCard">
+          <p><b>Event:</b> ${event.title}</p>
+          <p><b>Date:</b> ${event.date}</p>
+          <p><b>Name:</b> ${booking.surname}, ${booking.name}</p>
+          <p><b>Age:</b> ${booking.age}</p>
+          <p><b>Seats Booked:</b> ${booking.tickets}</p>
+        </div>
+      `;
+
+      const qrContainer = document.getElementById("qrcodes");
+      for (let i = 1; i <= booking.tickets; i++) {
+        const code = String(i).padStart(4, '0');
+        const ticketInfo = `
+Event: ${event.title}
+Date: ${event.date}
+Name: ${booking.name} ${booking.surname}
+Cell: ${booking.cellno}
+Age: ${booking.age}
+Ticket Number: ${code}
+Valid Until: ${event.date}
+`;
+        const div = document.createElement("div");
+        div.classList.add("qrcode");
+        qrContainer.appendChild(div);
+        new QRCode(div, { text: ticketInfo, width: 180, height: 180 });
+      }
+    };
+
+    // Manual download function
+    function downloadTicket() {
+      html2canvas(document.body).then(canvas => {
+        const link = document.createElement("a");
+        link.download = "ticket.png";
+        link.href = canvas.toDataURL();
+        link.click();
+      });
+    }
+  </script>
+</head>
+<body>
+  <h2>Your Ticket</h2>
+  <p>Please screenshot this ticket for entry, or use the button below to download it.</p>
+  <div id="ticketInfo"></div>
+  <div id="qrcodes"></div>
+  <button class="download-btn" onclick="downloadTicket()">Download Ticket</button>
+</body>
+</html>

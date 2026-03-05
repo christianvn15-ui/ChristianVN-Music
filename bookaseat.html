@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Buy A Ticket</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>ChristianVN Music</h1>
+    <h3>Buy a ticket for my next event</h3>
+  </header>
+  
+  <main>
+    <section class="event">
+      <h2>Select an Event</h2>
+      <hr>
+        <div class="letter-box" onclick="openTicket('show1')">
+    <h3>Sasolburg, Home</h3>
+    <p>28 March 2026</p>
+  </div>
+  <div id="show1" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeTicket('show1')">×</span>
+      <div class="modal-header">Sasolburg, Home</div>
+      <div class="modal-body scrollable">
+<form id="ticketForm" onsubmit="return confirmTicket('show1')">
+  <input type="text" placeholder="Name" id="name" required>
+  <input type="text" placeholder="Surname" id="surname" required>
+  <input type="email" placeholder="Email" id="email" required>
+  <input type="number" placeholder="Age" id="age" required>
+  <select id="tickets" required>
+  <option value="">Select tickets</option>
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+</select>
+  <button type="submit">Confirm</button>
+</form>
+      </div>
+    </div>
+  </div>
+        
+      <br>
+      <br>
+      <section class="event">
+      <hr>
+        <div class="letter-box" onclick="openTicket('show2')">
+    <h3>Vaalpark, Home</h3>
+    <p>5 April 2026</p>
+  </div>
+  <div id="show2" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeTicket('show2')">×</span>
+      <div class="modal-header">Sasolburg, Home</div>
+      <div class="modal-body scrollable">
+<form id="ticketForm" onsubmit="return confirmTicket('show1')">
+  <input type="text" placeholder="Name" id="name" required>
+  <input type="text" placeholder="Surname" id="surname" required>
+  <input type="email" placeholder="Email" id="email" required>
+  <input type="number" placeholder="Age" id="age" required>
+  <select id="tickets" required>
+  <option value="">Select tickets</option>
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+</select>
+  <button type="submit">Confirm</button>
+</form>
+      </div>
+    </div>
+  </div>
+  </main>
+  
+  <br>
+  <br>
+  <br>
+  <br>
+  <footer>
+  <h2><b>Follow me on: </b></h2>
+<ul>
+  <li>
+    <i id="icon" class="fa-brands fa-instagram"></i>
+    <a href="https://www.instagram.com/christian.vn_music?deoia=1">Instagram</a>
+  </li>
+  <li>
+    <i id="icon" class="fa-brands fa-facebook"></i>
+    <a href="https://www.facebook.com/share/1HzFi3HThS/"> Facebook</a>
+  </li>
+  <li>
+    <i id="icon" class="fa-brands fa-spotify"></i>
+    <a href="www.spotify/christianmuso"> Spotify</a>
+  </li>
+</ul>
+
+<h2><b>Contact Me:</b></h2>
+<ul>
+  <li>
+    <i id="icon" class="fa-solid fa-at"></i>
+    <a href="mailto:christian.muso2025@gmail.com"> ChristianMuso@gmail.com</a>
+  </li>
+  <li>
+    <i id="icon" class="fa-solid fa-phone"></i>
+    <a href="tel:+27739834474"> Phone</a>
+  </li>
+</ul>
+
+<br>
+<br>
+
+  <p class="copy">&copy; Christian Muso 2025</p>
+</footer>
+</body>
+</html>
