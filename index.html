@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home</title>
+  <title>ChristianVN Music</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <script src="main.js" defer></script>
@@ -11,7 +11,9 @@
 <body>
   <header>
     <h1>ChristianVN Music</h1>
-    <p class="abstract">An 18 year old South-African singer/songwriter inspired by country, pop and Gospel music.<b><q>I sing and write, because sometimes a song says it better than words.</q></b></p>
+    <p class="abstract">An 18 year old South-African singer/songwriter inspired by country, pop and Gospel music.
+      <br>
+    <b><q>I sing and write, because sometimes a song says it better than words.</q></b></p>
   </header>
   
   <main>
@@ -31,22 +33,25 @@
         <li>Dust on My Boots</li>
         <li>Beautiful Kind of Crazy</li>
         <li>Sing dit Saam</li>
+        <li>Song vir my Ma</li>
       </ul>
       <hr>
     </section>
     
     <section class="event">
       <h2><b>UPCOMING SHOWS</b></h2>
+      <h2>No upcomming shows at the moment. Please check back later!</h2>
+      <!-- <h2>Buy your tickets here!</h2> -->
       <hr>
       <div class="letter-box" onclick="openTicket('show1')">
-        <h2 class="title">Sasolburg, Home</h2>
-        <p class="buy">28 March 2026</p>
-        <p class="buy">Buy Ticket</p>
+        <h2 class="title">--</h2>
+        <p class="buy">--</p>
+        
       </div>
       <div id="show1" class="modal">
         <div class="modal-content">
           <span class="close" onclick="closeTicket('show1')">×</span>
-          <div class="modal-header">Sasolburg, Home</div>
+          <div class="modal-header">--</div>
           <div class="modal-body scrollable">
             <form onsubmit="return confirmTicket('show1')">
               <input type="text" placeholder="Name" id="name" required>
@@ -67,14 +72,14 @@
       </div>
 
       <div class="letter-box" onclick="openTicket('show2')">
-        <h2 class="title">Vaalpark, Home</h2>
-        <p class="buy">5 April 2026</p>
-        <p class="buy">Buy Ticket</p>
+        <h2 class="title">--</h2>
+        <p class="buy">--</p>
+        
       </div>
       <div id="show2" class="modal">
         <div class="modal-content">
           <span class="close" onclick="closeTicket('show2')">×</span>
-          <div class="modal-header">Vaalpark, Home</div>
+          <div class="modal-header">--</div>
           <div class="modal-body scrollable">
             <form onsubmit="return confirmTicket('show2')">
               <input type="text" placeholder="Name" id="name" required>
